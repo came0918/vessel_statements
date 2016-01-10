@@ -1,0 +1,24 @@
+<%# This is a comment %>
+<%= form_for(@statement) do |f| %>
+    <% if @statement.errors.any? %>
+        <div class="alert alert-error">
+          <h2><%= pluralize(@statement.errors.count, "error") %> prohibited this statement from being saved:</h2>
+
+          <ul>
+            <% @bookmark.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class = "well">
+      <%= form_for @statement, html: { multipart: true } do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <%= f.label :statement_file %>
+          <%= f.file_field :statement_file %>
+          <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+<% end %>
