@@ -4,7 +4,7 @@ class StatementsController < ApplicationController
   end
 
   def new
-    @statement = Statement.new(statement_params)
+    @statement = Statement.new
   end
 
   def create
@@ -25,7 +25,7 @@ class StatementsController < ApplicationController
 
   private
     def statement_params
-      params.require(:statement).permit(:name, :statement_file)
+      params.require(:statement).permit(:name)
     end
 
 end
