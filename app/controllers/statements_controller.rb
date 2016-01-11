@@ -25,7 +25,7 @@ class StatementsController < ApplicationController
 
   private
     def statement_params
-      params.require(:statement).permit(:name)
+      params.require(:statement).permit(:name, :attachment)
     end
 
 end
