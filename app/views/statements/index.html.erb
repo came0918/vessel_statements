@@ -24,7 +24,7 @@
 
       <tr>
         <td><%= statement.name %></td>
-        <td><%= link_to "Download Statement", statement.attachment_url %></td>
+        <td><%= link_to "Download Statement", statement.statement_url %></td>
         <td><%= button_to "Delete",  statement, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{statement.name}?" %>
         </td>
       </tr>
