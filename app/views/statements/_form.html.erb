@@ -1,7 +1,8 @@
-<%# This is a comment %>
 <%= form_for(@statement) do |f| %>
     <% if @statement.errors.any? %>
-        <div class="alert alert-error">
+        <div class="alert alert-danger alert-dismissable" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+          </button>
           <h2><%= pluralize(@statement.errors.count, "error") %> prohibited this statement from being saved:</h2>
 
           <ul>
@@ -12,13 +13,8 @@
         </div>
     <% end %>
 
-    <div class = "well">
-      <%= form_for @statement, html: { multipart: true } do |f| %>
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-          <%= f.label :statement %>
-          <%= f.file_field :statement %>
+    <div class="well">
+          <%= f.file_field :attachment %>
           <%= f.submit "Save", class: "btn btn-primary" %>
-      <% end %>
     </div>
 <% end %>

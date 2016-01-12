@@ -11,21 +11,21 @@ class StatementsController < ApplicationController
     @statement = Statement.new(statement_params)
 
     if @statement.save
-      redirect_to statements_path, notice: "The statement #{@statement.name} has been uploaded."
+      redirect_to statements_path, notice: "The statement #{@statement.attachment.url} has been uploaded."
     else
-      render "new"
+      render "index"
     end
   end
 
   def destroy
     @statement = Statement.find(params[:id])
     @statement.destroy
-    redirect_to statements_path, notice: "The statement #{@statement.name} has been removed."
+    redirect_to statements_path, notice: "The statement #{@statement.attachment.url} has been removed."
   end
 
   private
     def statement_params
-      params.require(:statement).permit(:name, :statement)
+      params.require(:statement).permit(:attachment)
     end
 
 end
