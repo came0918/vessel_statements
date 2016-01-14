@@ -1,6 +1,7 @@
 class Statement < ActiveRecord::Base
-  has_attached_file :attachment, default_url: '/images/missing.png'
+  has_attached_file :attachment,
+                    default_url: 'https://s3.amazonaws.com/www.premedinc.com/statements/missing.png',
+                    storage: :s3,
+                    bucket: Rails.env.production? ? 'www.premedinc.com' : 'www.premedinc.com.dev'
   do_not_validate_attachment_file_type :attachment
-  #validates_attachment :attachment, presence: true, size: {in: 0..50.megabytes}, content_type: {
-  #    content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]}
 end

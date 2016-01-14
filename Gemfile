@@ -48,3 +48,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gem 'carrierwave'
 gem 'paperclip', '~> 4.3.0'
 gem 'bootstrap-sass', '~> 2.3.2'
+gem 'aws-sdk', '~> 1.6'
