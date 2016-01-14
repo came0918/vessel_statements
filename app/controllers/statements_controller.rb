@@ -5,6 +5,7 @@ class StatementsController < ApplicationController
 
   def new
     @statement = Statement.new
+    @statement.attachment
   end
 
   def create
@@ -13,7 +14,7 @@ class StatementsController < ApplicationController
     if @statement.save
       redirect_to statements_path, notice: "The statement #{@statement.attachment.url} has been uploaded."
     else
-      render "index"
+      render "new"
     end
   end
 

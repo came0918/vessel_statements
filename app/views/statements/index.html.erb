@@ -22,7 +22,7 @@
   <tbody>
   <% @statements.each do |s| %>
       <tr>
-        <td><%= s.attachment.name %></td>
+        <td><%= s.attachment_file_name %></td>
         <td><%= link_to "Download Statement", s.attachment.url %></td>
         <td><%= button_to "Delete", s, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete
           #{s.attachment.url}?" %>
